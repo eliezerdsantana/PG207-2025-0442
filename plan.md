@@ -37,3 +37,60 @@ En caso de detectar una entrada realmente inválida, el programa impimirá únic
 - x: De 0 o 100.
 
 Los id deben ser únicos, no pueden repetirse, y deben recibirse todos los datos indicados por n y m.
+
+## Pseudocódigo
+
+INICIO
+       Intentar leer n, m y q
+
+       SI no se pudieron leer los tres datos ENTONCES
+           Mostrar "ERROR"
+           TERMINAR
+FIN SI
+
+SI n < 1 O n > 20 O m < 1 O m > 8 O q < 1 O q > 9999 ENTONCES
+    Mostrar "ERROR"
+    TERMINAR
+FIN SI
+
+Crear un arreglo registros con capacidad para 20 registros
+Crear una matriz muestras con 20 filas y 8 columnas
+
+PARA i DESDE 0 HASTA n - 1 HACER
+    Intentar leer id, nombre, tipo y p del registro actual
+
+    SI no se pudieron leer los cuatro datos ENTONCES
+        Mostrar "ERROR"
+        TERMINAR
+    FIN SI
+
+    SI id < 1 O id > 9999 O tipo no pertenece a {0, 1}
+    O p < 0 O p > 100 ENTONCES
+        Mostrar "ERROR"
+        TERMINAR
+    FIN SI
+
+    SI el id coincide con el de algún registro anterior ENTONCES
+        Mostrar "ERROR"
+        TERMINAR
+    FIN SI
+
+    Guardar id, nombre, tipo y p en registros[i]
+
+    PARA j DESDE 0 HASTA m - 1 HACER
+        Intentar leer muestras[i][j]
+
+        Si no se pudo leer el peso ENTONCES
+            Mostrar "ERROR"
+            TERMINAR
+        FIN SI
+
+        SI muestras[i][j] < 0 O muestras[i][j] > 100 ENTONCES
+            Mostrar "ERROR"
+            TERMINAR
+        FIN SI
+    FIN PARA
+FIN PARA
+
+// Pendiente: calcular y mostrar los resultados.
+FIN
