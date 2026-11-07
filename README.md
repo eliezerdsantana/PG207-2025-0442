@@ -24,6 +24,10 @@ El enunciado garantiza enteros representables, nombres de 1 a 15 caracteres ASCI
 - Para FIND preparo otra copia ordenada por id y aplico búsqueda binaria. buscar devuelve la posición encontrada o -1.
 - Trabajo sobre copias al ordenar para conservar las filas individuales en el orden de entrada.
 
+## Documentacion del codigo
+
+main.c y reto.h incluyen el encabezado de autoria con nombre, matricula, seccion, practica, fecha y enlace. Antes de cada funcion de main.c describi su trabajo, los parametros que recibe y el valor que devuelve. Tambien comente las partes principales del algoritmo: validacion, recorridos, cajas, recursividad, ordenamientos y busqueda binaria.
+
 ## Compilación y ejecución en Windows
 
 Usé VS Code, PowerShell y GCC de MSYS2. Desde la carpeta del proyecto, compilo con:
@@ -108,10 +112,12 @@ Esta tabla incluye los commits anteriores al commit final. El hash completo de l
 | `77cc96e96b18e3d9dab59c167bec662666fc19d8` | Agregué la suma recursiva de los scores. |
 | `58a87a01211c7b9618edebb4ed5e5499f72c7bd4` | Agregué el ordenamiento y la búsqueda binaria. |
 | `5e9c25046a8fc6b3331cd3cd52708390480bc16a` | Agregué el banco completo y guardé las salidas obtenidas. |
+| `c66cf56ba131f6480bc08a70b4cef390ec16fc6a` | Completé el README y corregí los detalles de la revisión final. |
 
 ## Fuentes consultadas
 
 - Enunciado PG207_2025-0442.pdf: reglas del problema, restricciones, casos públicos y evaluar.py.
 - [Documentación de GCC](https://gcc.gnu.org/onlinedocs/gcc/C-Dialect-Options.html): selección de C11 con -std=c11.
 - [Borrador de C11, WG14 N1570](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf): scanf en la sección 7.21.6.4 y strlen en la sección 7.24.6.3.
+
 
