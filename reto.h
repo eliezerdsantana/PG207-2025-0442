@@ -18,4 +18,7 @@ typedef struct {
     int estado;
 } Registro;
 
+int calcular(const int pesos[], int m, int tipo, int p,
+              char nombre[], int *estado);
+
 #endif

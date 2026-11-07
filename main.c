@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "reto.h"
 
 int main(void) {
@@ -51,6 +52,55 @@ int main(void) {
         }
     }
 
-    /* pendinte: calcular y mostrar los resultados*/
+    for (i = 0; i < n; i++) {
+        registros[i].score = calcular(
+            muestras[i], m, 
+            registros[i].config.tipo, registros[i].config.p, 
+            registros[i].nombre, &registros[i].estado);
+
+        printf("%d %s %d %d\n", 
+            registros[i].id, registros[i].nombre, 
+            registros[i].score, registros[i].estado);
+    }
+
+    /* Pendiente: TOTAL, ORDER y FIND. */
     return 0;
+}
+
+int calcular(const int pesos[], int m, int tipo, int p,
+              char nombre[], int *estado) {
+    int capacidad = p + 100;
+    int carga = 0;
+    int cajas = 1;
+    int paso, posicion, letra;
+    int longitud = (int)strlen(nombre);
+
+    *estado = 0;
+
+    for (letra = 0; letra < longitud; letra++) {
+        if (nombre[letra] >= 'a' && nombre[letra] <= 'z') {
+            nombre[letra] = (char)(nombre[letra] - 'a' + 'A');
+        }
+    }
+
+    for (paso = 0; paso < m; paso++) {
+        if (tipo == 0) {
+            posicion = paso;
+        } else {
+            posicion = m - 1 - paso;
+        }
+
+        if (carga + pesos[posicion] > capacidad) {
+            cajas++;
+            carga = 0;
+        }
+
+        carga += pesos[posicion];
+
+        if (carga == capacidad) {
+            *estado = 1;
+        }
+    }
+
+    return cajas;
 }

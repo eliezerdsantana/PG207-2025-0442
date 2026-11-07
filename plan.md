@@ -92,5 +92,42 @@ PARA i DESDE 0 HASTA n - 1 HACER
     FIN PARA
 FIN PARA
 
-// Pendiente: calcular y mostrar los resultados.
+PARA cada registro en el orden de entrada HACER
+    Llamar a calcular con sus pesos, m, tipo, p, nombre y referencia a estado
+    Guardar el valor devuelto en score
+    Mostrar id, nombre, score y estado
+FIN PARA
+
+// Pendiente: TOTAL, ORDER y FIND.
 FIN
+
+## Función calcular
+
+FUNCION calcular(pesos, m, tipo, p, nombre, REFERENCIA estado)
+    capacidad = p + 100
+    carga = 0
+    cajas = 1
+    estado = 0
+    Convertir nombre a mayúsculas
+
+    PARA paso DESDE 0 HASTA m - 1 HACER
+        SI tipo == 0 ENTONCES
+            posicion = paso
+        SINO
+            posicion = m - 1 - paso
+        FIN SI
+
+        SI carga + pesos[posicion] > capacidad ENTONCES
+            cajas = cajas + 1
+            carga = 0
+        FIN SI
+
+        carga = carga + pesos[posicion]
+
+        SI carga == capacidad ENTONCES
+            estado = 1
+        FIN SI
+    FIN PARA
+
+    DEVOLVER cajas
+FIN FUNCION
