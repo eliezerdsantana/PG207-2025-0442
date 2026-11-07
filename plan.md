@@ -98,7 +98,10 @@ PARA cada registro en el orden de entrada HACER
     Mostrar id, nombre, score y estado
 FIN PARA
 
-// Pendiente: TOTAL, ORDER y FIND.
+total = total_rec(registros, n)
+Mostrar "TOTAL", total
+
+// Pendiente: ORDER y FIND.
 FIN
 
 ## Función calcular
@@ -130,4 +133,14 @@ FUNCION calcular(pesos, m, tipo, p, nombre, REFERENCIA estado)
     FIN PARA
 
     DEVOLVER cajas
+FIN FUNCION
+
+## Función total_rec
+
+FUNCION total_rec(registros, n)
+    SI n == 0 ENTONCES
+        DEVOLVER 0
+    FIN SI
+
+    DEVOLVER registros[n - 1].score + total_rec(registros, n - 1)
 FIN FUNCION

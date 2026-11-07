@@ -63,7 +63,10 @@ int main(void) {
             registros[i].score, registros[i].estado);
     }
 
-    /* Pendiente: TOTAL, ORDER y FIND. */
+    int total = total_rec(registros, n);
+    printf("TOTAL %d\n", total);
+
+    /* Pendiente: ORDER y FIND. */
     return 0;
 }
 
@@ -103,4 +106,12 @@ int calcular(const int pesos[], int m, int tipo, int p,
     }
 
     return cajas;
+}
+
+int total_rec(const Registro registros[], int n) {
+    if (n == 0) {
+        return 0;
+    }
+
+    return registros[n - 1].score + total_rec(registros, n - 1);
 }

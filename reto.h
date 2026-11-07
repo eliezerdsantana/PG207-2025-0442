@@ -21,4 +21,6 @@ typedef struct {
 int calcular(const int pesos[], int m, int tipo, int p,
               char nombre[], int *estado);
 
+int total_rec(const Registro registros[], int n);
+
 #endif
