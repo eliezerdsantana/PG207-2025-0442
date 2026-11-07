@@ -66,7 +66,7 @@ int main(void) {
     }
 
     int total = total_rec(registros, n);
-    double media = (double)total / n;
+    double media = total / (double)n;
     (void)media;
     printf("TOTAL %d\n", total);
 

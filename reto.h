@@ -23,7 +23,6 @@ int calcular(const int pesos[], int m, int tipo, int p,
 
 int total_rec(const Registro registros[], int n);
 
-void ordenar_registros(Registro registros[], int n);
 void ordenar(Registro datos[], int n);
 void ordenar_por_id(Registro datos[], int n);
 int buscar(const Registro datos[], int n, int q);

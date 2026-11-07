@@ -6,26 +6,26 @@ El programa debe calcular cuántas cajas se utilizan para guardar los objetos de
 
 ## Datos de entrada
 n m q
-- n: Representa la cantidad de regristros que se procesarán.
+- n: Representa la cantidad de registros que se procesarán.
 - m: Representa la cantidad de objetos que contiene cada registro.
 - q: Es el identificador del registro que se buscará al final.
 
 id nombre tipo p x1 x2 ... xm
 - id: Es el identificador único de cada registro.
-- nombre: es el nombre o etiqueta de cada registro.
+- nombre: es el nombre o etiqueta de cada registro. Tiene de 1 a 15 caracteres ASCII alfanuméricos o guion bajo, sin espacios.
 - tipo: es el sentido del recorrido: 0 original y 1 inverso.
 - p: parámetro que determina la capacidad de cada caja mediante p + 100.
 - x1 ... xm: son los pesos de los m objetos del registro.
 
 ## Datos de salida
 
-Para una entrada válida, el programa va a mostrar una linea por cada registro, respetando el orden en que fueron ingresados. Cada línea incluirá el id, el nombre en mayúsculas, la cantidad de cajas utilizadas, que es el "score", y el indicador de si alguna caja quedó exactamente llena, que sería el "estado". Después de los resultados individuales, se imprimirán tres líneas adicionales:
+Para una entrada válida, el programa va a mostrar una línea por cada registro, respetando el orden en que fueron ingresados. Cada línea incluirá el id, el nombre en mayúsculas, la cantidad de cajas utilizadas, que es el "score", y el indicador de si alguna caja quedó exactamente llena, que sería el "estado". Después de los resultados individuales, se imprimirán tres líneas adicionales:
 
 - TOTAL: Es la suma de los scores de todos los registros de esa entrada.
-- ORDER: Son los identificadores (id) ordenados por score de mayor a menor. Si dos resgistros tienen el mismo score, aparecerá primero el identificador de menor valor.
-- FIND: Es el identificador consultado "q" y el score del registro encontrado. Si ese identificador no existe, mostrará "q" seguido de "-1"; porque una busqueda sin coincidencia no convierte la entrada en inválida.
+- ORDER: Son los identificadores (id) ordenados por score de mayor a menor. Si dos registros tienen el mismo score, aparecerá primero el identificador de menor valor.
+- FIND: Es el identificador consultado "q" y el score del registro encontrado. Si ese identificador no existe, mostrará "q" seguido de "-1"; porque una búsqueda sin coincidencia no convierte la entrada en inválida.
 
-En caso de detectar una entrada realmente inválida, el programa impimirá únicamente "ERROR", sin mostrar resultados parciales. Por eso, el programa debe comprobar que los datos de entrada sean válidos antes de imprimir los resultados.
+En caso de detectar una entrada realmente inválida, el programa imprimirá únicamente "ERROR", sin mostrar resultados parciales. Por eso, el programa debe comprobar que los datos de entrada sean válidos antes de imprimir los resultados.
 
 ## Restricciones y validaciones
 
@@ -33,13 +33,14 @@ En caso de detectar una entrada realmente inválida, el programa impimirá únic
 - m: De 1 a 8 objetos por registro.
 - id y q: Enteros de 1 a 9999.
 - tipo: Únicamente 0 o 1.
-- p: De 0 o 100.
-- x: De 0 o 100.
+- p: De 0 a 100.
+- x: De 0 a 100.
 
-Los id deben ser únicos, no pueden repetirse, y deben recibirse todos los datos indicados por n y m.
+Los id deben ser únicos, no pueden repetirse, y deben recibirse todos los datos indicados por n y m. El enunciado garantiza la forma léxica de los datos y que no habrá datos extra.
 
 ## Pseudocódigo
 
+```text
 INICIO
        Intentar leer n, m y q
 
@@ -116,9 +117,11 @@ SINO
     Mostrar "FIND", q, por_id[posicion].score
 FIN SI
 FIN
+```
 
 ## Función calcular
 
+```text
 FUNCION calcular(pesos, m, tipo, p, nombre, REFERENCIA estado)
     capacidad = p + 100
     carga = 0
@@ -147,9 +150,11 @@ FUNCION calcular(pesos, m, tipo, p, nombre, REFERENCIA estado)
 
     DEVOLVER cajas
 FIN FUNCION
+```
 
 ## Función total_rec
 
+```text
 FUNCION total_rec(registros, n)
     SI n == 0 ENTONCES
         DEVOLVER 0
@@ -157,3 +162,4 @@ FUNCION total_rec(registros, n)
 
     DEVOLVER registros[n - 1].score + total_rec(registros, n - 1)
 FIN FUNCION
+```

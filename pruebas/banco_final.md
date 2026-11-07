@@ -13,7 +13,15 @@ propias.json reúne las seis entradas propias que ya estaban en el proyecto y cu
 Cada archivo .out contiene la salida esperada de la versión completa.
 Las notas de validación anteriores describen las etapas de desarrollo; por eso algunas todavía hablan de funciones que estaban pendientes en esa etapa.
 
-Desde PowerShell, con Python 3 instalado:
+Desde PowerShell, el auxiliar evaluar.ps1 permite ejecutar las pruebas y guardar la evidencia:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\evaluar.ps1
+```
+
+Las salidas obtenidas se guardan en pruebas/obtenidos y el resumen en pruebas/resultado_final.txt.
+
+Como alternativa, con Python 3 instalado:
 
 ```powershell
 py evaluar.py publicas.json reto.exe
@@ -21,5 +29,5 @@ py evaluar.py propias.json reto.exe
 ```
 
 La comparación ignora diferencias de espacios y saltos de línea, como indica el enunciado.
-Los resultados obtenidos deben conservarse después de ejecutar las pruebas en la computadora de entrega.
+Los resultados obtenidos se conservan después de ejecutar las pruebas en la computadora de entrega.
 
