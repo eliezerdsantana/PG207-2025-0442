@@ -1,0 +1,63 @@
+[
+  {
+    "grupo": 1,
+    "nombre": "lectura_valida",
+    "entrada": "1 3 7\n7 lote_A 0 0 60 40 20\n",
+    "salida": "7 LOTE_A 2 1\nTOTAL 2\nORDER 7\nFIND 7 2\n"
+  },
+  {
+    "grupo": 2,
+    "nombre": "peso_invalido",
+    "entrada": "1 1 7\n7 lote_A 0 50 -1\n",
+    "salida": "ERROR\n"
+  },
+  {
+    "grupo": 3,
+    "nombre": "id_repetido",
+    "entrada": "2 1 7\n7 lote_A 0 0 20\n7 lote_B 1 50 30\n",
+    "salida": "ERROR\n"
+  },
+  {
+    "grupo": 4,
+    "nombre": "entrada_incompleta",
+    "entrada": "1 3 7\n7 lote_A 0 0 60 40\n",
+    "salida": "ERROR\n"
+  },
+  {
+    "grupo": 5,
+    "nombre": "calculo_sentidos_ceros",
+    "entrada": "4 3 99\n40 directo 0 0 60 40 30\n10 inverso 1 0 60 40 30\n30 ceros 1 100 0 0 0\n20 llena_0 0 0 100 0 0\n",
+    "salida": "40 DIRECTO 2 1\n10 INVERSO 2 0\n30 CEROS 1 0\n20 LLENA_0 1 1\nTOTAL 6\nORDER 10 40 20 30\nFIND 99 -1\n"
+  },
+  {
+    "grupo": 6,
+    "nombre": "busqueda_presente",
+    "entrada": "4 3 20\n40 directo 0 0 60 40 30\n10 inverso 1 0 60 40 30\n30 ceros 1 100 0 0 0\n20 llena_0 0 0 100 0 0\n",
+    "salida": "40 DIRECTO 2 1\n10 INVERSO 2 0\n30 CEROS 1 0\n20 LLENA_0 1 1\nTOTAL 6\nORDER 10 40 20 30\nFIND 20 1\n"
+  },
+  {
+    "grupo": 7,
+    "nombre": "limites_maximos",
+    "entrada": "20 8 9999\n9999 abcde_12345xyz9 0 0 100 100 100 100 100 100 100 100\n19 caja_19 1 0 100 100 100 100 100 100 100 100\n18 caja_18 0 0 100 100 100 100 100 100 100 100\n17 caja_17 1 0 100 100 100 100 100 100 100 100\n16 caja_16 0 0 100 100 100 100 100 100 100 100\n15 caja_15 1 0 100 100 100 100 100 100 100 100\n14 caja_14 0 0 100 100 100 100 100 100 100 100\n13 caja_13 1 0 100 100 100 100 100 100 100 100\n12 caja_12 0 0 100 100 100 100 100 100 100 100\n11 caja_11 1 0 100 100 100 100 100 100 100 100\n10 caja_10 0 0 100 100 100 100 100 100 100 100\n9 caja_9 1 0 100 100 100 100 100 100 100 100\n8 caja_8 0 0 100 100 100 100 100 100 100 100\n7 caja_7 1 0 100 100 100 100 100 100 100 100\n6 caja_6 0 0 100 100 100 100 100 100 100 100\n5 caja_5 1 0 100 100 100 100 100 100 100 100\n4 caja_4 0 0 100 100 100 100 100 100 100 100\n3 caja_3 1 0 100 100 100 100 100 100 100 100\n2 caja_2 0 0 100 100 100 100 100 100 100 100\n1 caja_1 1 0 100 100 100 100 100 100 100 100\n",
+    "salida": "9999 ABCDE_12345XYZ9 8 1\n19 CAJA_19 8 1\n18 CAJA_18 8 1\n17 CAJA_17 8 1\n16 CAJA_16 8 1\n15 CAJA_15 8 1\n14 CAJA_14 8 1\n13 CAJA_13 8 1\n12 CAJA_12 8 1\n11 CAJA_11 8 1\n10 CAJA_10 8 1\n9 CAJA_9 8 1\n8 CAJA_8 8 1\n7 CAJA_7 8 1\n6 CAJA_6 8 1\n5 CAJA_5 8 1\n4 CAJA_4 8 1\n3 CAJA_3 8 1\n2 CAJA_2 8 1\n1 CAJA_1 8 1\nTOTAL 160\nORDER 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 9999\nFIND 9999 8\n"
+  },
+  {
+    "grupo": 8,
+    "nombre": "busqueda_extremo",
+    "entrada": "4 3 40\n40 directo 0 0 60 40 30\n10 inverso 1 0 60 40 30\n30 ceros 1 100 0 0 0\n20 llena_0 0 0 100 0 0\n",
+    "salida": "40 DIRECTO 2 1\n10 INVERSO 2 0\n30 CEROS 1 0\n20 LLENA_0 1 1\nTOTAL 6\nORDER 10 40 20 30\nFIND 40 2\n"
+  },
+  {
+    "grupo": 9,
+    "nombre": "ausente_menor",
+    "entrada": "4 3 1\n40 directo 0 0 60 40 30\n10 inverso 1 0 60 40 30\n30 ceros 1 100 0 0 0\n20 llena_0 0 0 100 0 0\n",
+    "salida": "40 DIRECTO 2 1\n10 INVERSO 2 0\n30 CEROS 1 0\n20 LLENA_0 1 1\nTOTAL 6\nORDER 10 40 20 30\nFIND 1 -1\n"
+  },
+  {
+    "grupo": 10,
+    "nombre": "ausente_intermedio",
+    "entrada": "4 3 15\n40 directo 0 0 60 40 30\n10 inverso 1 0 60 40 30\n30 ceros 1 100 0 0 0\n20 llena_0 0 0 100 0 0\n",
+    "salida": "40 DIRECTO 2 1\n10 INVERSO 2 0\n30 CEROS 1 0\n20 LLENA_0 1 1\nTOTAL 6\nORDER 10 40 20 30\nFIND 15 -1\n"
+  }
+]
+

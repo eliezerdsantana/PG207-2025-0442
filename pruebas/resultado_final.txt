@@ -1,0 +1,22 @@
+publicas.json
+publica_01: OK
+publica_02: OK
+publica_03: OK
+publica_04: OK
+publica_05: OK
+publica_06: OK
+Casos correctos: 6 / 6
+
+propias.json
+lectura_valida: OK
+peso_invalido: OK
+id_repetido: OK
+entrada_incompleta: OK
+calculo_sentidos_ceros: OK
+busqueda_presente: OK
+limites_maximos: OK
+busqueda_extremo: OK
+ausente_menor: OK
+ausente_intermedio: OK
+Casos correctos: 10 / 10
+
