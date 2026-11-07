@@ -99,9 +99,22 @@ PARA cada registro en el orden de entrada HACER
 FIN PARA
 
 total = total_rec(registros, n)
+media = total / (double)n
 Mostrar "TOTAL", total
 
-// Pendiente: ORDER y FIND.
+Copiar registros a ordenados
+ordenar(ordenados, n)
+Mostrar "ORDER" seguido de los identificadores de ordenados
+
+Copiar registros a por_id
+ordenar_por_id(por_id, n)
+posicion = buscar(por_id, n, q)
+
+SI posicion == -1 ENTONCES
+    Mostrar "FIND", q, -1
+SINO
+    Mostrar "FIND", q, por_id[posicion].score
+FIN SI
 FIN
 
 ## Función calcular

@@ -5,6 +5,8 @@
 int main(void) {
     int n, m, q;
     Registro registros[MAX_REGISTROS];
+    Registro ordenados[MAX_REGISTROS];
+    Registro por_id[MAX_REGISTROS];
     int muestras[MAX_REGISTROS][MAX_OBJETOS];
     int i, j, k;
 
@@ -64,9 +66,36 @@ int main(void) {
     }
 
     int total = total_rec(registros, n);
+    double media = (double)total / n;
+    (void)media;
     printf("TOTAL %d\n", total);
 
-    /* Pendiente: ORDER y FIND. */
+    for (i = 0; i < n; i++) {
+        ordenados[i] = registros[i];
+    }
+
+    ordenar(ordenados, n);
+
+    printf("ORDER");
+    for (i = 0; i < n; i++) {
+        printf(" %d", ordenados[i].id);
+    }
+    printf("\n");
+
+    for (i = 0; i < n; i++) {
+        por_id[i] = registros[i];
+    }
+
+    ordenar_por_id(por_id, n);
+
+    int posicion = buscar(por_id, n, q);
+
+    if (posicion == -1) {
+        printf("FIND %d -1\n", q);
+    } else {
+        printf("FIND %d %d\n", q, por_id[posicion].score);
+    }
+
     return 0;
 }
 
@@ -114,4 +143,70 @@ int total_rec(const Registro registros[], int n) {
     }
 
     return registros[n - 1].score + total_rec(registros, n - 1);
+}
+
+void ordenar(Registro datos[], int n) {
+    int i, j, mejor;
+    Registro auxiliar;
+
+    for (i = 0; i < n - 1; i++) {
+        mejor = i;
+
+        for (j = i + 1; j < n; j++) {
+            if (datos[j].score > datos[mejor].score ||
+                (datos[j].score == datos[mejor].score &&
+                 datos[j].id < datos[mejor].id)) {
+                mejor = j;
+            }
+        }
+
+        if (mejor != i) {
+            auxiliar = datos[i];
+            datos[i] = datos[mejor];
+            datos[mejor] = auxiliar;
+        }
+    }
+}
+
+void ordenar_por_id(Registro datos[], int n) {
+    int i, j, menor;
+    Registro auxiliar;
+
+    for (i = 0; i < n - 1; i++) {
+        menor = i;
+
+        for (j = i + 1; j < n; j++) {
+            if (datos[j].id < datos[menor].id) {
+                menor = j;
+            }
+        }
+
+        if (menor != i) {
+            auxiliar = datos[i];
+            datos[i] = datos[menor];
+            datos[menor] = auxiliar;
+        }
+    }
+}
+
+int buscar(const Registro datos[], int n, int q) {
+    int inicio = 0;
+    int fin = n - 1;
+
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+
+        if (datos[medio].id == q) {
+            return medio;
+        }
+
+
+        if (q < datos[medio].id) {
+            fin = medio - 1;
+        } else {
+            inicio = medio + 1;
+        }
+    }
+
+    return -1;
 }
